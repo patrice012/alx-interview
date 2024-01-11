@@ -16,21 +16,17 @@ def canUnlockAll(boxes: list[list]) -> bool:
     if not boxes or not isinstance(boxes, list):
         return False
 
-    # # Check if all elements in boxes are lists
-    # if not all(isinstance(sublist, list) for sublist in boxes):
-    #     return False
+    # Check if all elements in boxes are lists
+    if not all(isinstance(sublist, list) for sublist in boxes):
+        return False
 
-    # # return true by default if length == 1
-    # if len(boxes) == 1:
-    #     return True
+    # return true by default if length == 1
+    if len(boxes) == 1:
+        return True
 
-    set_of_keys = set()
-    set_of_keys.add(0)
-    queue = [0]
-
-    for key in queue:
+    keys = [0]
+    for key in keys:
         for new_key in boxes[key]:
-            if new_key not in set_of_keys:
-                set_of_keys.add(new_key)
-                queue.append(new_key)
-    return len(set_of_keys) == len(boxes)
+            if new_key not in keys and new_key < len(boxes):
+                keys.append(new_key)
+    return len(keys) == len(boxes)
