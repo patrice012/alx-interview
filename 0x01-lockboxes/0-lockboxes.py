@@ -4,7 +4,7 @@
 """
 
 
-def canUnlockAll(boxes: list[list]) -> bool:
+def canUnlockAll(boxes):
     """
     Args:
         boxes: list of lists of positive integers
